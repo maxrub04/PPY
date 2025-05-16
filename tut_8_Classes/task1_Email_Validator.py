@@ -14,8 +14,11 @@ Instructions:
     -Returns True if the email is valid, and False otherwise"""
 import re
 def validate_email(email):
-    imei = re.compile(r"^[a-zA-Z0-9_]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,6}$")
-    return imei.match(email)
-print(validate_email("maksrub04gmail.com"))
+    pattern = re.compile(r"^[a-zA-Z0-9_]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,6}$")
+    return bool(pattern.match(email))
+
+print(validate_email("maksrub04@gmail.com"))  # True
+print(validate_email("user@example-domain.com"))  # True
+print(validate_email("maksrub04gmail.com"))  # False
 
 
