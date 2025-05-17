@@ -26,7 +26,6 @@ book3 = Book("To Kill a Mockingbird", "Harper Lee", "9780061120084")"""
 
 
 class Book:
-
     def __init__(self, title, author, isbn):
         self.title = title
         self.author = author
@@ -35,13 +34,11 @@ class Book:
 
     def check_in(self):
         self.is_checked_out = False
-        return self
 
     def check_out(self):
         if self.is_checked_out:
-            raise ValueError("Book is already checked out")
+            raise ValueError(f"Book '{self.title}' is already checked out")
         self.is_checked_out = True
-        return self
 
     def is_available(self):
         return not self.is_checked_out
@@ -55,21 +52,20 @@ class Book:
 
 
 class Library:
-
     def __init__(self):
         self.books = []
 
     def add_book(self, book):
         if not isinstance(book, Book):
-            raise TypeError("Can only add Book objects to library")
+            raise TypeError("Can only add Book objects to the library")
         self.books.append(book)
 
     def display_books(self):
         if not self.books:
-            print("No books in the library")
-            return
-        for book in self.books:
-            print(book)
+            print("No books in the library.")
+        else:
+            for book in self.books:
+                print(book)
 
     def find_book(self, isbn):
         for book in self.books:
@@ -77,20 +73,30 @@ class Library:
                 return book
         return None
 
+
 book1 = Book("The Great Gatsby", "F. Scott Fitzgerald", "9780743273565")
 book2 = Book("1984", "George Orwell", "9780451524935")
 book3 = Book("To Kill a Mockingbird", "Harper Lee", "9780061120084")
+
 
 library = Library()
 library.add_book(book1)
 library.add_book(book2)
 library.add_book(book3)
 
+print("\n--- Initial Library ---")
 library.display_books()
 
 book1.check_in()
 book2.check_out()
 book3.check_out()
 
-book1.check_out()
-book2.check_out()
+print("\n--- After Some Books Checked Out ---")
+library.display_books()
+
+print("\n--- Finding a Book by ISBN ---")
+found_book = library.find_book("9780743273565")
+if found_book:
+    print(found_book)
+else:
+    print("Book not found.")

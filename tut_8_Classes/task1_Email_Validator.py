@@ -20,5 +20,6 @@ def validate_email(email):
 print(validate_email("maksrub04@gmail.com"))  # True
 print(validate_email("user@example-domain.com"))  # True
 print(validate_email("maksrub04gmail.com"))  # False
+print(validate_email("maksrub04@gmailcom")) # False
 
 
