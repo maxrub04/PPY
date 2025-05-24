@@ -51,10 +51,10 @@ class StudentManager:
 
     def write_results(self, output_path):
         output_path = pathlib.Path(output_path)
-        with output_path.open('w') as f:
+        with output_path.open('w') as file:
             for student in self.students:
                 status = self.STATUS_PASSED if student.has_passed() else self.STATUS_FAILED
-                f.write(f"{student.name}: Total = {student.total_score()}, Status = {status}\n")
+                file.write(f"{student.name}: Total = {student.total_score()}, Status = {status}\n")
 
 
 input_path = "grades_input.txt"
