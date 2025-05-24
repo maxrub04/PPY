@@ -64,3 +64,5 @@ manager = StudentManager(input_path)
 manager.read_students()
 
 manager.write_results(output_path)
+
+print(f"Results written to {output_path}")
