@@ -1,0 +1,5 @@
+Alice: Total = 253, Status = PASSED
+Bob: Total = 150, Status = FAILED
+Charlie: Total = 265, Status = PASSED
+Diana: Total = 150, Status = FAILED
+Eve: Total = 293, Status = PASSED
